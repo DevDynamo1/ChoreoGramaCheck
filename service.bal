@@ -1,3 +1,4 @@
+import wso2/choreo.sendsms;
 import lahiru123/police_check_api;
 import chevon/idapi;
 import ballerina/log;
@@ -17,10 +18,12 @@ service / on new http:Listener(9090) {
         json getChecknicResponse = check idapiEndpoint1->getChecknic(nic);
         police_check_api:Client police_check_apiEndpoint = check new ({auth: {clientId: "CGKFcnBtzAdUbSzYPiARIyLqAtMa", clientSecret: "znaMA4rLFI0ajcVu1cyyPBTX4i8a"}});
         json getGetpersoncrimerecordsResponse = check police_check_apiEndpoint->getGetpersoncrimerecords(nic);
-        
+
         log:printInfo(getGetpersoncrimerecordsResponse.toBalString());
-        
+
+        sendsms:Client sendsmsEndpoint = check new ({});
+        string sendSmsResponse = check sendsmsEndpoint->sendSms(phone, "No crime records found. Validated successfully");
         return getGetpersoncrimerecordsResponse;
-    
+
     }
 }

@@ -304,10 +304,24 @@ dependencies = [
 	{org = "ballerina", name = "log"},
 	{org = "ballerinai", name = "observe"},
 	{org = "chevon", name = "idapi"},
-	{org = "lahiru123", name = "police_check_api"}
+	{org = "lahiru123", name = "police_check_api"},
+	{org = "wso2", name = "choreo.sendsms"}
 ]
 modules = [
 	{org = "pramudi", packageName = "gramacheckintegrationapi", moduleName = "gramacheckintegrationapi"}
+]
+
+[[package]]
+org = "wso2"
+name = "choreo.sendsms"
+version = "0.5.1"
+dependencies = [
+	{org = "ballerina", name = "http"},
+	{org = "ballerina", name = "log"},
+	{org = "ballerinai", name = "observe"}
+]
+modules = [
+	{org = "wso2", packageName = "choreo.sendsms", moduleName = "choreo.sendsms"}
 ]
 
 
